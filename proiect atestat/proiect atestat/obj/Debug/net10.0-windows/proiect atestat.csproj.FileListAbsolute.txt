@@ -1,0 +1,17 @@
+C:\11B\C#\proiect atestat\proiect atestat\bin\Debug\net10.0-windows\proiect atestat.exe
+C:\11B\C#\proiect atestat\proiect atestat\bin\Debug\net10.0-windows\proiect atestat.deps.json
+C:\11B\C#\proiect atestat\proiect atestat\bin\Debug\net10.0-windows\proiect atestat.runtimeconfig.json
+C:\11B\C#\proiect atestat\proiect atestat\bin\Debug\net10.0-windows\proiect atestat.dll
+C:\11B\C#\proiect atestat\proiect atestat\bin\Debug\net10.0-windows\proiect atestat.pdb
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect_atestat.Form1.resources
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect_atestat.Properties.Resources.resources
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect atestat.csproj.GenerateResource.cache
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect atestat.GeneratedMSBuildEditorConfig.editorconfig
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect atestat.AssemblyInfoInputs.cache
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect atestat.AssemblyInfo.cs
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect atestat.csproj.CoreCompileInputs.cache
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect atestat.dll
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\refint\proiect atestat.dll
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect atestat.pdb
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\proiect atestat.genruntimeconfig.cache
+C:\11B\C#\proiect atestat\proiect atestat\obj\Debug\net10.0-windows\ref\proiect atestat.dll
