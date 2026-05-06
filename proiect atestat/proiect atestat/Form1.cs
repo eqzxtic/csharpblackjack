@@ -38,22 +38,30 @@ namespace proiect_atestat
         int dealerSum = 0;
         int playerSize = 0;
         int dealerSize = 0;
+        int player = 0;
 
-        int[,] carti = new int[13,4];
+        int[] carti = new int[14];
         // AS DOI TREI PATRU CINCI SASE SAPTE OPT NOUA ZECE REGE DAMA JUVETE
         void addCard(int player)
         {
             Random rnd=new Random();
-            int nr=0, rang=0;
+            int nr = 0;
             nr = rnd.Next(1, 14);
-            rang = rnd.Next(1, 5);
-            while (carti[nr,rang]==1)
+            while (carti[nr]>4)
             {
                 nr = rnd.Next(1, 14);
-                rang = rnd.Next(1, 5);
             }
-            carti[nr, rang] = 1;
-
+            carti[nr]++;
+            if(player==1)
+            {
+                playerSize++;
+                playerSum += nr;
+            }
+            if(player==2)
+            {
+                dealerSize++;
+                dealerSum += nr;
+            }
         }
 
         void winlose()
@@ -76,6 +84,7 @@ namespace proiect_atestat
         }
         void restart()
         {
+            gamestart = false;
             bet = 0;
             balance = 50;
             label5.Text = "Not started";
@@ -89,6 +98,7 @@ namespace proiect_atestat
             {
                 label5.Text = "In progress";
             }
+            winlose();
             if (cL == true)
             {
                 label5.Text = "You lost";
@@ -101,6 +111,8 @@ namespace proiect_atestat
             }
             label8.Text = bet.ToString();
             label4.Text = balance.ToString();
+            label6.Text = dealerSum.ToString();
+            label7.Text = playerSum.ToString();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -145,11 +157,12 @@ namespace proiect_atestat
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            int nr = 0, rang = 0;
-            nr = rnd.Next(1, 13);
-            rang = rnd.Next(1, 5);
-            carti[nr, rang] = 1;
+            addCard(2);
+            addCard(2);
+            addCard(1);
+            addCard(1);
+            gamestart = true;
+            update();
         }
 
         private void button9_Click(object sender, EventArgs e)
