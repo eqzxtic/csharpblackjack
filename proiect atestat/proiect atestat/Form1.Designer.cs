@@ -104,6 +104,7 @@
             button5.TabIndex = 4;
             button5.Text = "Hit";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -122,6 +123,7 @@
             button7.TabIndex = 6;
             button7.Text = "Stand";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // label1
             // 

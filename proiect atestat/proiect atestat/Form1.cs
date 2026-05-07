@@ -34,6 +34,7 @@ namespace proiect_atestat
         bool cL = false;
         bool cW = false;
         bool cT = false;
+        bool cS = false;
         int playerSum = 0;
         int dealerSum = 0;
         int playerSize = 0;
@@ -44,20 +45,20 @@ namespace proiect_atestat
         // AS DOI TREI PATRU CINCI SASE SAPTE OPT NOUA ZECE REGE DAMA JUVETE
         void addCard(int player)
         {
-            Random rnd=new Random();
+            Random rnd = new Random();
             int nr = 0;
             nr = rnd.Next(1, 14);
-            while (carti[nr]>4)
+            while (carti[nr] > 4)
             {
                 nr = rnd.Next(1, 14);
             }
             carti[nr]++;
-            if(player==1)
+            if (player == 1)
             {
                 playerSize++;
                 playerSum += nr;
             }
-            if(player==2)
+            if (player == 2)
             {
                 dealerSize++;
                 dealerSum += nr;
@@ -67,18 +68,19 @@ namespace proiect_atestat
         void winlose()
         {
             if (playerSum > 21) cL = true;
-            if(playerSum==21)
+            if (dealerSum > 21) cW = true;
+            if (playerSum == 21)
             {
                 if (playerSize < dealerSize) cW = true;
                 if (playerSize == dealerSize) cT = true;
                 if (playerSize > dealerSize) cL = true;
             }
-            if(playerSum<21)
+            if (playerSum < 21 && cS == true)
             {
                 if (playerSum > dealerSum) cW = true;
                 if (playerSum == dealerSum && playerSize > dealerSize) cL = true;
-                if(playerSum == dealerSum && playerSize < dealerSize) cW = true;
-                if(playerSum == dealerSum && playerSize == dealerSize) cT = true;
+                if (playerSum == dealerSum && playerSize < dealerSize) cW = true;
+                if (playerSum == dealerSum && playerSize == dealerSize) cT = true;
 
             }
         }
@@ -88,8 +90,8 @@ namespace proiect_atestat
             bet = 0;
             balance = 50;
             label5.Text = "Not started";
-            label8.Text = "0";
-            label4.Text = "50";
+            label8.Text = bet.ToString();
+            label4.Text = balance.ToString();
         }
 
         void update()
@@ -169,6 +171,22 @@ namespace proiect_atestat
         {
             balance += bet;
             bet = 0;
+            update();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            cS = true;
+            while(dealerSum<=17)
+            {
+                addCard(2);
+            }
+            update();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            addCard(1);
             update();
         }
     }
