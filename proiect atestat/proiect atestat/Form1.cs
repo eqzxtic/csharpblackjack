@@ -39,7 +39,6 @@ namespace proiect_atestat
         int dealerSum = 0;
         int playerSize = 0;
         int dealerSize = 0;
-        int player = 0;
 
         int[] carti = new int[14];
         // AS DOI TREI PATRU CINCI SASE SAPTE OPT NOUA ZECE REGE DAMA JUVETE
@@ -75,20 +74,88 @@ namespace proiect_atestat
                 if (playerSize == dealerSize) cT = true;
                 if (playerSize > dealerSize) cL = true;
             }
-            if (playerSum < 21 && cS == true)
+            if (playerSum < 21)
             {
                 if (playerSum > dealerSum) cW = true;
                 if (playerSum == dealerSum && playerSize > dealerSize) cL = true;
                 if (playerSum == dealerSum && playerSize < dealerSize) cW = true;
                 if (playerSum == dealerSum && playerSize == dealerSize) cT = true;
-
+            }
+            if (cS==true)
+            {
+                if (playerSum > dealerSum && playerSum < 21) cW = true;
+                if (playerSum == dealerSum && playerSize < dealerSize) cW = true;
+                if (playerSum == dealerSum && playerSize > dealerSize) cL = true;
+                if (playerSum < dealerSum) cL = true;
+                if (playerSum == dealerSum && playerSize == dealerSize) cT = true;
             }
         }
         void restart()
         {
+            cW = false;
+            cL = false;
+            cS = false;
+            cT = false;
             gamestart = false;
             bet = 0;
             balance = 50;
+            dealerSum = 0;
+            dealerSize = 0;
+            playerSum = 0;
+            playerSize = 0;
+            label5.Text = "Not started";
+            label8.Text = bet.ToString();
+            label4.Text = balance.ToString();
+        }
+
+        void win()
+        {
+            cW = false;
+            cL = false;
+            cS = false;
+            cT = false;
+            gamestart = false;
+            balance += bet * 2;
+            bet = 0;
+            dealerSum = 0;
+            dealerSize = 0;
+            playerSum = 0;
+            playerSize = 0;
+            label5.Text = "Not started";
+            label8.Text = bet.ToString();
+            label4.Text = balance.ToString();
+        }
+
+        void tie()
+        {
+            cW = false;
+            cL = false;
+            cS = false;
+            cT = false;
+            gamestart = false;
+            balance += bet;
+            bet = 0;
+            dealerSum = 0;
+            dealerSize = 0;
+            playerSum = 0;
+            playerSize = 0;
+            label5.Text = "Not started";
+            label8.Text = bet.ToString();
+            label4.Text = balance.ToString();
+        }
+
+        void lose()
+        {
+            cW = false;
+            cL = false;
+            cS = false;
+            cT = false;
+            gamestart = false;
+            bet = 0;
+            dealerSum = 0;
+            dealerSize = 0;
+            playerSum = 0;
+            playerSize = 0;
             label5.Text = "Not started";
             label8.Text = bet.ToString();
             label4.Text = balance.ToString();
@@ -105,12 +172,27 @@ namespace proiect_atestat
             {
                 label5.Text = "You lost";
                 wait(3000);
-                restart();
+                lose();
             }
             if (cW == true)
             {
                 label5.Text = "You win";
+                wait(3000);
+                win();
             }
+            if (cS == true)
+            {
+                if (cT == true)
+                {
+                    label5.Text = "Tie";
+                    wait(3000);
+                    tie();
+                }
+            }
+            if(balance<10)
+            {
+                restart();
+            }    
             label8.Text = bet.ToString();
             label4.Text = balance.ToString();
             label6.Text = dealerSum.ToString();
@@ -177,7 +259,7 @@ namespace proiect_atestat
         private void button7_Click(object sender, EventArgs e)
         {
             cS = true;
-            while(dealerSum<=17)
+            while(dealerSum<17)
             {
                 addCard(2);
             }
